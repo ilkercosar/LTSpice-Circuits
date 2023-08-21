@@ -1,0 +1,28 @@
+* C:\Users\class\Desktop\simulation\ad8605-simulation\main.asc
+v-sensor N007 N009 SINE(0 140m 120 0 0 5 0)
+XU1 N008 N002 v-positive v-negative N002 AD8605
+v-rail-negative v-negative 0 -5v
+R2 N005 N002 3.32K
+v-rail-positive v-positive 0 5v
+R3 N006 N005 4.64K
+C2 N006 0 100nF
+C3 N003 N005 100nF
+XU2 N006 N003 v-positive v-negative N003 AD8605
+XU3 N003 N004 v-positive v-negative v-amp AD8605
+R6 N001 v-amp 10K
+R7 v-out N001 47K
+R1 N008 N007 6.04K
+v-7 N009 N010 SINE(0 17m 840)
+v-5 N010 N011 SINE(0 24m 600)
+v-3 N011 N012 SINE(0 40m 360)
+v-high N012 N013 SINE(0 100m 40k)
+B1 N013 0 V=white(10e5*time)/5
+C1 N008 0 100nF
+R4 0 N004 1K
+R5 v-amp 0 20K
+R8 v-out 0 1K
+XU4 N001 0 v-positive 0 v-out AD8605
+.tran 25m
+.lib ADI.lib
+.backanno
+.end
